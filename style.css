@@ -1,0 +1,88 @@
+html {
+    background: linear-gradient(to bottom, #008FA4 0%, #A4CBC9 51%, #097075 100%);
+    height: 100%;
+    width: 100%;
+}
+
+.container {
+    position: absolute;
+    border: 1px solid black;
+    top: 15%;
+    left: 20%;
+    background-color: green;
+    box-shadow: 0 25px 50px rgb(33 33 33 / 25%);
+    border-radius: 25px;
+
+
+}
+
+.controls {
+    display: flex;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    gap: 30px;
+}
+
+.disabled {
+    color: 001A15;
+}
+
+.score {
+    align-items: right;
+}
+
+.card {
+    position: relative;
+    width: 80px;
+    height: 100px;
+    cursor: crosshair;
+    margin: 10px;
+}
+
+.card-front,
+.card-back {
+    position: absolute;
+    border-radius: 25%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #A40000 0%, #2388CB 64%, #000375 100%);
+    transition: transform .6s cubic-bezier(0.4, 0.0, 0.2, 1);
+    backface-visibility: hidden;
+}
+
+.card-back {
+    transform: rotateY(180deg) rotateZ(50deg);
+    font-size: 32px;
+    user-select: none;
+    text-align: center;
+    line-height: 100px;
+    background: #ccffff;
+}
+
+.card-flipped, .card-front {
+    transform: rotateY(180deg) rotateZ(50deg);
+}
+
+.card-flipped, .card-back {
+    transform: rotateY(0) rotateZ(0);
+}
+
+.success {
+    position: absolute;
+    top: 15%;
+    left: 20%;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    background: #cccc00;
+    transform: rotateY(180deg) rotateZ(50deg);
+}
+
+.success-text {
+    position: absolute;
+    top: 15%;
+    left: 20%;
+    font-size: 30px;
+    color: #000080;
+}
+

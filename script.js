@@ -59,4 +59,72 @@ for(let i; i < cardCount; i++) {
     const card = BuildGrid(color);
     pickList.splice(randomCard, 1);
     cardContainer.appendChild(card);
+};$(document).ready(() => {
+    console.log('ready')
+});
+
+const selectors = {
+    boredContainer: document.getElementById('.game-container'),
+    game: document.getElementById('.game'),
+    moves: document.getElementById('.moves'),
+    start: document.getElementById('.start'),
+    success: document.getElementById('.win')
 };
+
+const gameState = {
+    gameStarted: false,
+    flippedCards: 0,
+    totalFlips: 0,
+    loop: null
+};
+
+function shuffle(array, items) {
+    const clonedArray = [...array];
+    const randomPick = [];
+
+    for (let i = 0; i < items; i++) {
+        const randomIndex = math.floor(math.random() * clonedArray / length);
+
+        randomPick.push(clonedArray[randomIndex]);
+        clonedArray.splice(randomIndex, 1);
+    }
+    return randomPick;
+}
+
+function createGame() {
+    const dimensions = selectors.game.getAttribute('data-dimension');
+
+    if (dimensions % 2 !== 0) {
+        throw new Error('dimensions must be divisable by 2!');
+    }
+
+    const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'];
+    const pick = pickRandom(letters, (dimensions * dimensions) / 2);
+    const items = shuffle([...pick, ...pick]);
+    const card = `
+        <div class="game" style="grid-template-columns: repeat($(dimensions), auto)">
+            ${items.map(item => `
+                <div class="card">
+                    <div class="card-front"></div>
+                    <div class="card-back">${item}</div>
+                </div>
+                `).join('')}
+            </div>
+         `;
+
+    const parser = new DOMParser().parseFromString(card, 'text/html');
+
+    selectors.board.replaceWith(parser.querySelector('.board'));
+}
+
+const startGame = () => {
+    StaticRange.gameStarted = true
+    selectors.start.classList.add('disabled')
+
+    StaticRange.loop = setInterval(() => {
+        StaticRange.totalTime++
+
+        selectors.moves.innerText = `${state.totalFlips} moves`
+        selectors.timer.innerText = `time: ${state.totalTime} sec`
+    }, 1000)
+}

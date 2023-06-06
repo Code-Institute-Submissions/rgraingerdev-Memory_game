@@ -1,13 +1,13 @@
-$(document).ready(() => {
+document.addEventListener('DOMContentLoaded', () => {
     console.log('ready')
-});
+})
 
 const selectors = {
     board: document.querySelector('.game-container'),
     game: document.querySelector('.game'),
     moves: document.querySelector('.moves'),
     start: document.querySelector('.start'),
-    success: document.querySelector('.win')
+    win: document.querySelector('.win')
 };
 
 const gameState = {
@@ -17,12 +17,12 @@ const gameState = {
     loop: null
 };
 
-const shuffle = array => {
+const shuffle = (array) => {
     const clonedArray = [...array]
 
     for (let index = clonedArray.length - 1; index > 0; index--) {
         const randomIndex = Math.floor(Math.random() * (index + 1))
-        const original = clonedArray[index]
+        const original = clonedArray[randomIndex]
 
         clonedArray[index] = clonedArray[randomIndex]
         clonedArray[randomIndex] = original
@@ -31,13 +31,12 @@ const shuffle = array => {
     return clonedArray
 }
 
-function randomShuffle(array, items) {
+const randomShuffle = (array, items) => {
     const clonedArray = [...array];
     const randomPick = [];
 
     for (let i = 0; i < items; i++) {
         const randomIndex = Math.floor(Math.random() * clonedArray / length);
-
         randomPick.push(clonedArray[randomIndex]);
         clonedArray.splice(randomIndex, 1);
     }
@@ -73,8 +72,7 @@ function createGame() {
 const startGame = () => {
     gameState.gameStarted = true
     selectors.start.classList.add('disabled')
-
-        selectors.moves.innerText = `moves: ${gameState.totalFlips}`
+    selectors.moves.innerText = `Moves: ${gameState.totalFlips}`
     }
 
 
@@ -114,16 +112,25 @@ const flipCard = card => {
 
     if (!document.querySelectorAll('.card:not(.flipped)').length) {
         setTimeout(() => {
-            selectors.boredContainer.classList.add('flipped')
-            selectors.win.innerHTML = `
-            <h1> you WON<br />
-            With <span class="highlight">${state.totalFlips}</span> moves <br />
-            `
-
-            clearInterval(state.loop)
+            selectors.board.classList.add('.flipped')
+            Swal.fire({
+                icon: 'success',
+                title: 'You Won!!',
+                html:  `<span class="highlight"> ${gameState.totalFlips} Moves</span>`,
+                showCancelButton: true,
+                cancelButtonText: 'close',
+                confirmButtonText: 'restart',
+                reverseButtons: true
+            }).then((result) => {
+                if(result.isConfirmed) {
+                    restartGame()
+                }
+            })
+            clearInterval(gameState.loop)
         }, 1000)
     }
 }
+
 
 const attachEventListeners = () => {
     document.addEventListener('click', event => {
@@ -139,4 +146,16 @@ const attachEventListeners = () => {
 }
 
 createGame()
-attachEventListeners()
+attachEventListeners();
+
+const restartGame = () => {
+    gameState.gameStarted = false,
+    gameState.flippedCards = 0,
+    gameState.totalFlips = 0,
+    selectors.moves.innerText = '',
+    selectors.start.classList.remove('disabled'),
+    selectors.board.innerHTML = ''
+
+    createGame();
+    attachEventListeners()
+}

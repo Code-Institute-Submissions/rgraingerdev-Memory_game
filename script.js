@@ -56,10 +56,10 @@ function createGame() {
     const items = shuffle([...pick, ...pick]);
     const cards = `
     <div class="board" style="grid-template-columns: repeat(${dimensions}, auto)">
-        ${items.map(item => `
+        ${items.map(() => `
             <div class="card">
                 <div class="card-front"></div>
-                <div class="card-back">${item}</div>
+                <div class="card-back">${items}</div>
             </div>
         `).join('')}
    </div>
@@ -83,22 +83,22 @@ function flipBackCards() {
         card.classList.remove('.flipped');
     });
 
-    state.flippedCards = 0;
+    gameState.flippedCards = 0;
 }
 
-const flipcard = card => {
-    state.flippedCards++
-    state.totalFlips++
+const flipCard = card => {
+    gameState.flippedCards++
+    gameState.totalFlips++
 
-    if (!state.gameStarted) {
+    if (!gameState.gameStarted) {
         startGame()
     }
 
-    if (state.flippedCards <= 2) {
+    if (gameState.flippedCards <= 2) {
         card.classList.add('flipped')
     }
 
-    if (state.flippedCards === 2) {
+    if (gameState.flippedCards === 2) {
         const flippedCards = document.querySelectorAll('.flipped:not(.matched)')
 
         if (flippedCards[0].innerText === flippedCards[1].innertext) {
@@ -125,13 +125,13 @@ const flipcard = card => {
     }
 }
 
-const attachedEventListeners = () => {
+const attachEventListeners = () => {
     document.addEventListener('click', event => {
         const eventTarget = event.target
-        const eventParent = event.parentElement
+        const eventParent = eventTarget.parentElement
 
         if (eventTarget.className.includes('card') && !eventParent.className.includes('flipped')) {
-            flipcard(eventParent)
+            flipCard(eventParent)
         } else if (eventTarget.nodeName === 'BUTTON' && !eventTarget.className.includes('disabled')) {
             startGame()
         }
@@ -139,4 +139,4 @@ const attachedEventListeners = () => {
 }
 
 createGame()
-attachedEventListeners()
+attachEventListeners()

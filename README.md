@@ -1,108 +1,191 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+![Cardiff city](assets/images/Cardiff_City_Fanpage.png)
 
-Welcome USER_NAME,
+Welcome To the CCFC Fan Page, The Cardiff City Football Club and everything it stands for are the focus of this website. You can find upcoming fixtures, top scorers and the history.
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+## Getting Started
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+Visit https://rgraingerdev.github.io/CCFCfanpage/ on your preferred web browser to access the CCFC Fan Page. The website is completely responsive; regardless of whether you're using a desktop computer, tablet or smartphone, it should look excellent on all of them.
 
-## Gitpod Reminders
+## User Storys
+I have developed user stories to direct my design and development process; in order to make sure that the CCFC Fan Page satisfies the requirements of my users. Here are some usage examples for user stories:
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
 
-`python3 -m http.server`
+* As a supporter of Cardiff City, I want to be able to swiftly and conveniently find out the latest information on the squad.
+* I want to be able to see upcoming fixtures.
+* I want to be able to book tickets for upcoming fixtures.
+* I want to have access to the most recent standings and top scorers.
+* I want to learn more about Cardiff City club history.
+* i want to be able to easily navigate the website.
+* I want to be able to contact the page creator with my questions.
+* I want to be able to know where the stadium is located.
+* I want to be able to view the webpage on mobile or tablet.
 
-A blue button should appear to click: _Make Public_,
 
-Another blue button should appear to click: _Open Browser_.
+By developing user stories, I can make sure that the website satisfies user needs and offers a satisfying browsing experience. I regularly gather user feedback and apply it to the design and functionality of the website.
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+## UI/UX
 
-A blue button should appear to click: _Make Public_,
+* The aim is for a first-time user to be able to easily navigate.
+* The colour scheme was chosen to reflect the colours of the football team with the intention of making it simple for a novice user to navigate. 
+* This page was made so that both new and current club supporters would have a place to check future games and monitor the progress of the current campaign.
 
-Another blue button should appear to click: _Open Browser_.
+### Future features
+* Add auto updates for upcoming fixtures.
+* A rolling gallery of images of past and present teams.
+* Add a live standings table to the season page.
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+### Font
 
-To log into the Heroku toolbelt CLI:
+* Quicksand was the font I chose. The typeface was picked because it is slick and simple for the end user to read, additionally it comes from Google Fonts.
+* ![wireframe](assets/Screenshots/Quicksand_font.png)
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+## Wireframes
+* I began my project with wireframing my design below:
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+* ![wireframe](assets/Screenshots/wireframemobile.png)
+* ![wireframe desktop](assets/Screenshots/wireframe1.png)
+* ![wireframe desktop 2](assets/Screenshots/wireframe2.png)
+* ![wireframe desktop 3](assets/Screenshots/wireframe3.png)
 
-------
+## Technologies used
+* HTML - Was used for the structure of the page.
+* CSS - was used for the style of elements.
+* Github - is the hosting site for storing the code and version control.
+* balsamiq - used for wireframes.
+* Fontawesome - for icons on navbar.
+* google fonts - used for the Quicksand font.
+* Devtools - used for debugging and testing to ensure responsiveness.
+* Google chrome lighthouse - used for testing.
+* W3C HTML Validator - used for validating HTML of the page.
+* W3C CSS validator - used for validating CSS of the page.
 
-## Release History
+## Testing
+The CCFC Fan Page has undergone comprehensive testing to guarantee that it operates properly and offers a satisfying user experience. The website has been tested on a variety of hardware, browsers, and operating systems, including:
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+Systems running Windows, macOS, and Linux.
+Web browsers such as Safari, Edge, Firefox and Chrome that can run on mobile and desktop.
+I carried out user testing to gather opinions from people. I used this feedback to improve the website's functionality and appearance.
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+Please contact me via the website's contact form if you experience any problems while using the CCFC Fan Page. I consider all comments carefully and attempt to resolve any problems as soon as possible.
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+### Page Testing
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+Testing began with automated testing as per the table below with screenshots.
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+|Test |Lighthouse| W3 html validator| W3 schools jigsaw| 
+|-----|-----|-----|-----|
+|home| Pass| Pass| Pass|
+|History| Pass| Pass| Pass|
+|Season| Pass| Pass| Pass|
+|Contact| Pass | Pass| Pass|
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+![Home](assets/Screenshots/validator_home.png)  
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+![Home](assets/Screenshots/validator_history.png)  
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+![Home](assets/Screenshots/validator_season.png)  
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+![Home](assets/Screenshots/validator_contact.png)  
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+![Home](assets/Screenshots/lighthuse_desktop.png)
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+![Home](assets/Screenshots/Lighthouse-testing.png)
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+### Manual testing
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+#### Home page
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+| Feature | Expect | Action | Result | Pass/Fail |
+|-----|-----|-----|-----|-----|
+|Enter button| To navigate to history page | clicked the enter button | Opened history page correctly | Pass |
+|Nav links | When clicked navigate to page | Clicked all nav links on all pages| All pages opened as expected| Pass
+|Social link icons | Social link icons to open links in new tab| clicked social link icons| Link opened in new tab and on correct site| Pass|
+|Menu Drop down | To drop down on mobile and tablet devices | opened on mutiple devices and pressed button | menu droped and displayed correctly| Pass|
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+#### Contact form
 
-------
+| Feature | Expect | Action | Result | Pass/Fail |
+|-----|-----|-----|-----|-----|
+|Nav links | When clicked navigate to page | Clicked all nav links on all pages| All pages opened as expected| Pass
+|Menu Drop down | To drop down on mobile and tablet devices | opened on mutiple devices and pressed button | menu droped and displayed correctly| Pass|
+|Social link icons | Social link icons to open links in new tab| clicked social link icons| Link opened in new tab and on correct site| Pass|
+|Contact form | To  submit for when inputs are filled | left form blank and attempted submit/filled form and submitted | prompted to fill input boxes/ submitted to input page| Pass|
+|return home button | to navigate back to history page after form submission | clicked return home button | returned to history page | Pass |
 
-## FAQ about the uptime script
 
-**Why have you added this script?**
+#### History page
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+| Feature | Expect | Action | Result | Pass/Fail |
+|-----|-----|-----|-----|-----|
+|Nav links | When clicked navigate to page | Clicked all nav links on all pages| All pages opened as expected| Pass
+|Menu Drop down | To drop down on mobile and tablet devices | opened on mutiple devices and pressed button | menu droped and displayed correctly| Pass|
+|Social link icons | Social link icons to open links in new tab| clicked social link icons| Link opened in new tab and on correct site| Pass|
 
-**How will this affect me?**
+#### Seasons page
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
+| Feature | Expect | Action | Result | Pass/Fail |
+|-----|-----|-----|-----|-----|
+|Nav links | When clicked navigate to page | Clicked all nav links on all pages| All pages opened as expected| Pass
+|Menu Drop down | To drop down on mobile and tablet devices | opened on mutiple devices and pressed button | menu droped and displayed correctly| Pass|
+|Social link icons | Social link icons to open links in new tab| clicked social link icons| Link opened in new tab and on correct site| Pass|
+|Ticket buttons | to open in new tab on ticket office | clicked ticket buttons | navigated to ticket office in new tab| Pass |
+|Season badge button | To open CCFC wiki in new tab | clicked the button | opened CCFC wiki in new tab| Pass|
+|Map | To display a map to stadium | opened in multiple browsers and devices | displayed correctly| Pass|
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
+Continuing with testing, I tested the page across multiple devices (iPhone, Galaxy Fold, Edge and Firefox) ensuring all links and pages loaded all elements correctly and promptly.
 
-**So….?**
+![iphone home](assets/Screenshots/iphone_home.png)  
 
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
 
-**Can I opt out?**
+![fold contact](assets/Screenshots/fold_contact.png) 
 
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
+![Fold open history](assets/Screenshots/fold_open_history.png)
 
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
 
-**Anything more?**
+![Desktop Home](assets/Screenshots/desktop_dis_home.png)
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
 
----
+![Firefox Home](assets/Screenshots/firefox_season.png)  
 
-Happy coding!
+
+### known bugs
+
+Bugs found during writing have been fixed. The footer obscuring certain information at the bottom of the page presented a challenging bug to fix. It also got stuck in the centre of the page, hiding several items, this has been fixed, and all pages now reply as intended.
+
+## Deployment
+1. Navigate to the [repository](https://github.com/rgraingerdev/Milestone-project)
+2. Click on Settings on the top.
+3. Click on Pages on the menu on the left which will open GitHub Pages window.
+4. From the drop-down menu under source select deploy from branch.
+5. From the drop-down menu under branch select main, this tells GitHub which branch to use for the deployment. Click Save.
+6. The page should refresh, and the deployment link should appear.
+
+## Creating a fork
+1. Navigate to the [repository](https://github.com/rgraingerdev/Milestone-project)
+2. In the top-right corner of the page click on the fork button and select create a fork.
+3. You can change the name of the fork and add description 
+4. Choose to copy only the main branch or all branches to the new fork. 
+5. Click Create a Fork. A repository should appear in your GitHub.
+
+### Cloning Repository
+1. Navigate to the [repository](https://github.com/rgraingerdev/Milestone-project)
+2. Click on the Code button on top of the repository and copy the link. 
+3. Open Git Bash and change the working directory to the location where you want the cloned directory. 
+4. Type git clone and then paste the link.
+5. Press Enter to create your local clone.
+
+## Sources
+
+upcoming games - https://www.cardiffcityfc.co.uk/fixture/list/594
+history gathered from https://en.wikipedia.org/wiki/Cardiff_City_F.C.
+
+### images from:
+* Badge - https://www.facebook.com/cardiffcityfc/
+* Ninian park - https://nigelblues.blogspot.com/2010/09/100-years-old-today-well-it-would-have.html
+* Promotion celebration - https://www.gettyimages.co.uk/detail/news-photo/ * cardiff-captain-sean-morrison-and-manager-neil-warnock-news-photo/955307338 
+* Timeline assistance - https://mdbootstrap.com/docs/b4/jquery/plugins/timeline/
+
+## Acknowledgements
+* Thank you to my mentor for supporting me through this project
+* Everybody on slack for answering any questions I had along the way.

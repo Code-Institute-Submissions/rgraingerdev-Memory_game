@@ -44,11 +44,7 @@ const randomShuffle = (array, items) => {
 }
 
 function createGame() {
-    const dimensions = document.querySelector('.board').getAttribute('data-dimension')
-
-    if (dimensions % 2 !== 0) {
-        throw new Error('dimensions must be divisable by 2!');
-    }
+    const dimensions = 4
 
     const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'];
     const pick = randomShuffle(letters, (dimensions * dimensions) / 2);
@@ -86,7 +82,11 @@ function flipBackCards() {
 
 const flipCard = card => {
     gameState.flippedCards++
-    gameState.totalFlips++
+    while (gameState.gameStarted === true) {
+        gameState.totalFlips++
+        selectors.moves.innerText = `Moves: ${gameState.totalFlips}`
+        break
+    }
 
     if (!gameState.gameStarted) {
         startGame()
@@ -106,7 +106,7 @@ const flipCard = card => {
 
         setTimeout(() => {
             flipBackCards()
-        }, 1000)
+        }, 500)
 
     }
 
@@ -136,6 +136,7 @@ const attachEventListeners = () => {
     document.addEventListener('click', event => {
         const eventTarget = event.target
         const eventParent = eventTarget.parentElement
+        
 
         if (eventTarget.className.includes('card') && !eventParent.className.includes('flipped')) {
             flipCard(eventParent)
@@ -149,13 +150,13 @@ createGame()
 attachEventListeners();
 
 const restartGame = () => {
-    gameState.gameStarted = false,
-    gameState.flippedCards = 0,
-    gameState.totalFlips = 0,
-    selectors.moves.innerText = '',
-    selectors.start.classList.remove('disabled'),
-    selectors.board.innerHTML = ''
-
-    createGame();
+    gameState.gameStarted = false
+    gameState.flippedCards = 0
+    gameState.totalFlips = 0
+    selectors.start.classList.remove('disabled')
+    selectors.moves.innerText = `Moves: ${gameState.totalFlips}`
+    selectors.board.classList.remove('flipped')
+    createGame()
     attachEventListeners()
 }
+

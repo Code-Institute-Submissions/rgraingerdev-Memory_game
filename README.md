@@ -1,10 +1,10 @@
-![Cardiff city](assets/images/Cardiff_City_Fanpage.png)
+![Memory game](assets/images/)
 
-Welcome To the CCFC Fan Page, The Cardiff City Football Club and everything it stands for are the focus of this website. You can find upcoming fixtures, top scorers and the history.
+Welcome To this memory game where you can test you memory and see how many attemps it takes for you to complete.
 
 ## Getting Started
 
-Visit https://rgraingerdev.github.io/CCFCfanpage/ on your preferred web browser to access the CCFC Fan Page. The website is completely responsive; regardless of whether you're using a desktop computer, tablet or smartphone, it should look excellent on all of them.
+Visit https://rgraingerdev.github.io/js/ on your preferred web browser to access the Memory game.
 
 ## User Storys
 I have developed user stories to direct my design and development process; in order to make sure that the CCFC Fan Page satisfies the requirements of my users. Here are some usage examples for user stories:

@@ -46,7 +46,9 @@ const randomShuffle = (array, items) => {
 function createGame() {
     const dimensions = 4
 
-    const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'];
+    const letters = [
+        
+    ];
     const pick = randomShuffle(letters, (dimensions * dimensions) / 2);
     const items = shuffle([...pick, ...pick]);
     const cards = `

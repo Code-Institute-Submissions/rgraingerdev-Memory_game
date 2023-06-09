@@ -6,14 +6,20 @@ const selectors = {
     board: document.querySelector('.game-container'),
     game: document.querySelector('.game'),
     moves: document.querySelector('.moves'),
+    timer: document.querySelector('.timer'),
     start: document.querySelector('.start'),
     win: document.querySelector('.win')
 };
+
+selectors.start.addEventListener('click', () => {
+    restartGame()
+})
 
 const gameState = {
     gameStarted: false,
     flippedCards: 0,
     totalFlips: 0,
+    totalTime: 0,
     loop: null
 };
 
@@ -72,6 +78,10 @@ const startGame = () => {
     selectors.start.classList.add('disabled')
     selectors.moves.innerText = `Moves: ${gameState.totalFlips}`
     }
+    gameState.loop = setInterval(() => {
+        gameState.totalTime++
+        selectors.timer.innertext = `Time: ${gameState.totalTime} seconds`
+    }, 1000)
 
 
 function flipBackCards() {
@@ -87,6 +97,7 @@ const flipCard = card => {
     while (gameState.gameStarted === true) {
         gameState.totalFlips++
         selectors.moves.innerText = `Moves: ${gameState.totalFlips}`
+        selectors.timer.innerText = `Time: ${gameState.totalTime}`
         break
     }
 
@@ -108,7 +119,7 @@ const flipCard = card => {
 
         setTimeout(() => {
             flipBackCards()
-        }, 500)
+        }, 200)
 
     }
 
@@ -118,7 +129,7 @@ const flipCard = card => {
             Swal.fire({
                 icon: 'success',
                 title: 'You Won!!',
-                html:  `<span class="highlight"> ${gameState.totalFlips} Moves</span>`,
+                html:  `<span class="highlight"> ${gameState.totalFlips} Moves and a time of ${gameState.totalTime} Seconds</span>`,
                 showCancelButton: true,
                 cancelButtonText: 'close',
                 confirmButtonText: 'restart',
@@ -132,7 +143,6 @@ const flipCard = card => {
         }, 1000)
     }
 }
-
 
 const attachEventListeners = () => {
     document.addEventListener('click', event => {
@@ -155,6 +165,7 @@ const restartGame = () => {
     gameState.gameStarted = false
     gameState.flippedCards = 0
     gameState.totalFlips = 0
+    gameState.totalTime = 0
     selectors.start.classList.remove('disabled')
     selectors.moves.innerText = `Moves: ${gameState.totalFlips}`
     selectors.board.classList.remove('flipped')

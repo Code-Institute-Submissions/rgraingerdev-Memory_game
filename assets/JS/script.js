@@ -1,3 +1,5 @@
+
+
 document.addEventListener('DOMContentLoaded', () => {
     console.log('ready')
 })
@@ -14,6 +16,44 @@ const selectors = {
 selectors.start.addEventListener('click', () => {
     restartGame()
 })
+
+const images = [
+    {
+        src: "assets/images/book.png",
+        alt: "book",
+    },
+    {
+        src: "assets/images/hammer.png",
+        alt: "hammer",
+    },
+    {
+        src: "assets/images/hood.png",
+        alt: "hood",
+    },
+    {
+        src: "assets/images/horn.png",
+        alt: "horn",
+    },
+    {
+        src: "assets/images/key.png",
+        alt: "key"
+    },
+    {
+        src: "assets/images/mace.png",
+        alt: "mace"
+    },
+    {
+        src: "assets/images/mug.png",
+        alt: "mug"
+    },
+    {
+        src: "assets/images/potion.png",
+        alt: "potion"
+    },
+    {
+        src: "assets/images/rune.png",
+    }
+]
 
 const gameState = {
     gameStarted: false,
@@ -37,11 +77,11 @@ const shuffle = (array) => {
     return clonedArray
 }
 
-const randomShuffle = (array, items) => {
+const randomShuffle = (array, images) => {
     const clonedArray = [...array];
     const randomPick = [];
 
-    for (let i = 0; i < items; i++) {
+    for (let i = 0; i < images; i++) {
         const randomIndex = Math.floor(Math.random() * clonedArray / length);
         randomPick.push(clonedArray[randomIndex]);
         clonedArray.splice(randomIndex, 1);
@@ -51,11 +91,7 @@ const randomShuffle = (array, items) => {
 
 function createGame() {
     const dimensions = 4
-
-    const letters = [
-        
-    ];
-    const pick = randomShuffle(letters, (dimensions * dimensions) / 2);
+    const pick = randomShuffle(images, (dimensions * dimensions) / 2);
     const items = shuffle([...pick, ...pick]);
     const cards = `
     <div class="board" style="grid-template-columns: repeat(${dimensions}, auto)">
@@ -172,4 +208,5 @@ const restartGame = () => {
     createGame()
     attachEventListeners()
 }
+
 

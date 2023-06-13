@@ -17,44 +17,6 @@ selectors.start.addEventListener('click', () => {
     restartGame()
 })
 
-const images = [
-    {
-        src: "assets/images/book.png",
-        alt: "book",
-    },
-    {
-        src: "assets/images/hammer.png",
-        alt: "hammer",
-    },
-    {
-        src: "assets/images/hood.png",
-        alt: "hood",
-    },
-    {
-        src: "assets/images/horn.png",
-        alt: "horn",
-    },
-    {
-        src: "assets/images/key.png",
-        alt: "key"
-    },
-    {
-        src: "assets/images/mace.png",
-        alt: "mace"
-    },
-    {
-        src: "assets/images/mug.png",
-        alt: "mug"
-    },
-    {
-        src: "assets/images/potion.png",
-        alt: "potion"
-    },
-    {
-        src: "assets/images/rune.png",
-    }
-]
-
 const gameState = {
     gameStarted: false,
     flippedCards: 0,
@@ -63,12 +25,12 @@ const gameState = {
     loop: null
 };
 
-const shuffle = (array) => {
+const shuffle = array => {
     const clonedArray = [...array]
 
     for (let index = clonedArray.length - 1; index > 0; index--) {
         const randomIndex = Math.floor(Math.random() * (index + 1))
-        const original = clonedArray[randomIndex]
+        const original = clonedArray[index]
 
         clonedArray[index] = clonedArray[randomIndex]
         clonedArray[randomIndex] = original
@@ -77,28 +39,40 @@ const shuffle = (array) => {
     return clonedArray
 }
 
-const randomShuffle = (array, images) => {
-    const clonedArray = [...array];
+const randomShuffle = (array, items) => {
+    const clonedArray = [...array,...array];
     const randomPick = [];
 
-    for (let i = 0; i < images; i++) {
+    for (let i = 0; i < items; i++) {
         const randomIndex = Math.floor(Math.random() * clonedArray / length);
+
         randomPick.push(clonedArray[randomIndex]);
         clonedArray.splice(randomIndex, 1);
     }
-    return randomPick;
+    return clonedArray;
 }
 
 function createGame() {
     const dimensions = 4
-    const pick = randomShuffle(images, (dimensions * dimensions) / 2);
+    const images = [
+        "./assets/images/book.png",
+        "./assets/images/hammer.png",
+        "./assets/images/hood.png",
+        "./assets/images/horn.png",
+        "./assets/images/key.png",
+        "./assets/images/mace.png",
+        "./assets/images/mug.png",
+        "./assets/images/potion.png",
+        "./assets/images/rune.png",
+    ]
+    const pick = randomShuffle(images, (dimensions * dimensions) / 2);   
     const items = shuffle([...pick, ...pick]);
     const cards = `
     <div class="board" style="grid-template-columns: repeat(${dimensions}, auto)">
-        ${items.map(() => `
+        ${items.map((item) => `
             <div class="card">
                 <div class="card-front"></div>
-                <div class="card-back">${items}</div>
+                <div class="card-back"><img src=${item}></div>
             </div>
         `).join('')}
    </div>
@@ -204,6 +178,7 @@ const restartGame = () => {
     gameState.totalTime = 0
     selectors.start.classList.remove('disabled')
     selectors.moves.innerText = `Moves: ${gameState.totalFlips}`
+    selectors.timer.innerText = `Time: ${gameState.totalTime}`
     selectors.board.classList.remove('flipped')
     createGame()
     attachEventListeners()

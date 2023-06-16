@@ -4,6 +4,18 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log('ready')
 })
 
+const images = [ 
+    "./assets/images/book.png",
+    "./assets/images/hammer.png",
+    "./assets/images/hood.png",
+    "./assets/images/horn.png",
+    "./assets/images/key.png",
+    "./assets/images/mace.png",
+    "./assets/images/mug.png",
+    "./assets/images/potion.png",
+    "./assets/images/rune.png",
+];
+
 const selectors = {
     board: document.querySelector('.game-container'),
     game: document.querySelector('.game'),
@@ -36,35 +48,24 @@ const shuffle = array => {
         clonedArray[randomIndex] = original
     }
 
-    return clonedArray
+    return clonedArray;
 }
 
 const randomShuffle = (array, items) => {
-    const clonedArray = [...array,...array];
+    const clonedArray = [...array];
     const randomPick = [];
 
     for (let i = 0; i < items; i++) {
-        const randomIndex = Math.floor(Math.random() * clonedArray / length);
+        const randomIndex = Math.floor(Math.random() * clonedArray.length);
 
         randomPick.push(clonedArray[randomIndex]);
         clonedArray.splice(randomIndex, 1);
     }
-    return clonedArray;
+    return randomPick;
 }
 
 function createGame() {
     const dimensions = 4
-    const images = [
-        "./assets/images/book.png",
-        "./assets/images/hammer.png",
-        "./assets/images/hood.png",
-        "./assets/images/horn.png",
-        "./assets/images/key.png",
-        "./assets/images/mace.png",
-        "./assets/images/mug.png",
-        "./assets/images/potion.png",
-        "./assets/images/rune.png",
-    ]
     const pick = randomShuffle(images, (dimensions * dimensions) / 2);   
     const items = shuffle([...pick, ...pick]);
     const cards = `
@@ -76,81 +77,76 @@ function createGame() {
             </div>
         `).join('')}
    </div>
-`
+`;
 
-    const parser = new DOMParser().parseFromString(cards, 'text/html')
+    const parser = new DOMParser().parseFromString(cards, 'text/html');
 
-    document.querySelector('.board').replaceWith(parser.querySelector('.board'))
+    document.querySelector('.board').replaceWith(parser.querySelector('.board'));
 }
 
 const startGame = () => {
     gameState.gameStarted = true
     selectors.start.classList.add('disabled')
-    selectors.moves.innerText = `Moves: ${gameState.totalFlips}`
     }
     gameState.loop = setInterval(() => {
         gameState.totalTime++
-        selectors.timer.innertext = `Time: ${gameState.totalTime} seconds`
+        selectors.moves.innerText = `Moves: ${gameState.totalFlips}`;
+        selectors.timer.innerText = `Time: ${gameState.totalTime}`;
     }, 1000)
 
 
 function flipBackCards() {
     document.querySelectorAll('.card:not(.matched)').forEach(card => {
-        card.classList.remove('.flipped');
+        card.classList.remove('flipped');
     });
 
     gameState.flippedCards = 0;
 }
 
-const flipCard = card => {
-    gameState.flippedCards++
-    while (gameState.gameStarted === true) {
-        gameState.totalFlips++
-        selectors.moves.innerText = `Moves: ${gameState.totalFlips}`
-        selectors.timer.innerText = `Time: ${gameState.totalTime}`
-        break
-    }
+function flipCard(card) {
+    gameState.flippedCards++;
+    gameState.totalFlips++;
 
     if (!gameState.gameStarted) {
-        startGame()
+        startGame();
     }
 
     if (gameState.flippedCards <= 2) {
-        card.classList.add('flipped')
+        card.classList.add('flipped');
     }
 
     if (gameState.flippedCards === 2) {
-        const flippedCards = document.querySelectorAll('.flipped:not(.matched)')
+        const flippedCards = document.querySelectorAll('.flipped:not(.matched)');
 
-        if (flippedCards[0].innerText === flippedCards[1].innertext) {
-            flippedCards[0].classList.add('matched')
-            flippedCards[1].classList.add('matched')
-        }
+        if (flippedCards[0].innerHTML === flippedCards[1].innerHTML) {
+            flippedCards[0].classList.add('matched');
+            flippedCards[1].classList.add('matched');
+        } 
 
         setTimeout(() => {
-            flipBackCards()
-        }, 200)
-
-    }
+            flipBackCards();
+        }, 500);
+        }
+    
 
     if (!document.querySelectorAll('.card:not(.flipped)').length) {
         setTimeout(() => {
-            selectors.board.classList.add('.flipped')
+            selectors.board.classList.add('.flipped');
             Swal.fire({
                 icon: 'success',
                 title: 'You Won!!',
-                html:  `<span class="highlight"> ${gameState.totalFlips} Moves and a time of ${gameState.totalTime} Seconds</span>`,
+                html: `<span class="highlight"> ${gameState.totalFlips} Moves and a time of ${gameState.totalTime} Seconds</span>`,
                 showCancelButton: true,
                 cancelButtonText: 'close',
                 confirmButtonText: 'restart',
                 reverseButtons: true
             }).then((result) => {
-                if(result.isConfirmed) {
-                    restartGame()
+                if (result.isConfirmed) {
+                    restartGame();
                 }
-            })
-            clearInterval(gameState.loop)
-        }, 1000)
+            });
+            clearInterval(gameState.loop);
+        }, 1000);
     }
 }
 

@@ -27,15 +27,10 @@ By developing user stories, I can make sure that the website satisfies user need
 * Add a scoreboard to mesure your score against other players.
 * Add a user input to dictate the size of the game.
 
-### Font
-
-* Quicksand was the font I chose. The typeface was picked because it is slick and simple for the end user to read, additionally it comes from Google Fonts.
-* ![wireframe](assets/Screenshots/Quicksand_font.png)
-
 ## Wireframes
 * I began my project with wireframing my design below:
 
-* ![wireframe](assets/Screenshots/wireframemobile.png)
+* ![wireframe](assets/images/Screenshots/wireframe.png)
 
 ## Technologies used
 * HTML - Was used for the structure of the page.

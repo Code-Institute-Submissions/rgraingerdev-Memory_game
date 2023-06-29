@@ -1,8 +1,8 @@
 
 
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('ready')
-})
+    console.log('ready');
+});
 
 const images = [ 
     "./assets/images/book.png",
@@ -26,8 +26,8 @@ const selectors = {
 };
 
 selectors.start.addEventListener('click', () => {
-    restartGame()
-})
+    restartGame();
+});
 
 const gameState = {
     gameStarted: false,
@@ -38,18 +38,18 @@ const gameState = {
 };
 
 const shuffle = array => {
-    const clonedArray = [...array]
+    const clonedArray = [...array];
 
     for (let index = clonedArray.length - 1; index > 0; index--) {
-        const randomIndex = Math.floor(Math.random() * (index + 1))
-        const original = clonedArray[index]
+        const randomIndex = Math.floor(Math.random() * (index + 1));
+        const original = clonedArray[index];
 
-        clonedArray[index] = clonedArray[randomIndex]
-        clonedArray[randomIndex] = original
+        clonedArray[index] = clonedArray[randomIndex];
+        clonedArray[randomIndex] = original;
     }
 
     return clonedArray;
-}
+};
 
 const randomShuffle = (array, items) => {
     const clonedArray = [...array];
@@ -62,10 +62,10 @@ const randomShuffle = (array, items) => {
         clonedArray.splice(randomIndex, 1);
     }
     return randomPick;
-}
+};
 
 function createGame() {
-    const dimensions = 4
+    const dimensions = 4;
     const pick = randomShuffle(images, (dimensions * dimensions) / 2);   
     const items = shuffle([...pick, ...pick]);
     const cards = `
@@ -85,14 +85,14 @@ function createGame() {
 }
 
 const startGame = () => {
-    gameState.gameStarted = true
-    selectors.start.classList.add('disabled')
-    }
+    gameState.gameStarted = true;
+    selectors.start.classList.add('disabled');
+    };
     gameState.loop = setInterval(() => {
-        gameState.totalTime++
+        gameState.totalTime++;
         selectors.moves.innerText = `Moves: ${gameState.totalFlips}`;
         selectors.timer.innerText = `Time: ${gameState.totalTime}`;
-    }, 1000)
+    }, 1000);
 
 
 function flipBackCards() {
@@ -152,32 +152,32 @@ function flipCard(card) {
 
 const attachEventListeners = () => {
     document.addEventListener('click', event => {
-        const eventTarget = event.target
-        const eventParent = eventTarget.parentElement
+        const eventTarget = event.target;
+        const eventParent = eventTarget.parentElement;
         
 
         if (eventTarget.className.includes('card') && !eventParent.className.includes('flipped')) {
-            flipCard(eventParent)
+            flipCard(eventParent);
         } else if (eventTarget.nodeName === 'BUTTON' && !eventTarget.className.includes('disabled')) {
-            startGame()
+            startGame();
         }
-    })
-}
+    });
+};
 
-createGame()
+createGame();
 attachEventListeners();
 
 const restartGame = () => {
-    gameState.gameStarted = false
-    gameState.flippedCards = 0
-    gameState.totalFlips = 0
-    gameState.totalTime = 0
-    selectors.start.classList.remove('disabled')
-    selectors.moves.innerText = `Moves: ${gameState.totalFlips}`
-    selectors.timer.innerText = `Time: ${gameState.totalTime}`
-    selectors.board.classList.remove('flipped')
-    createGame()
-    attachEventListeners()
-}
+    gameState.gameStarted = false;
+    gameState.flippedCards = 0;
+    gameState.totalFlips = 0;
+    gameState.totalTime = 0;
+    selectors.start.classList.remove('disabled');
+    selectors.moves.innerText = `Moves: ${gameState.totalFlips}`;
+    selectors.timer.innerText = `Time: ${gameState.totalTime}`;
+    selectors.board.classList.remove('flipped');
+    createGame();
+    attachEventListeners();
+};
 
 

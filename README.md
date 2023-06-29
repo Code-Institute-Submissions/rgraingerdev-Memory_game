@@ -65,13 +65,13 @@ Testing began with automated testing as per the table below with screenshots.
 |Main| Pass| Pass| Pass|
 
 
-![Home](assets/Screenshots/jigsaw.png)  
+![Home](assets/images/screenshots/jigsaw.png)  
 
-![Home](assets/Screenshots/Lighthouse.png)  
+![Home](assets/images/screenshots/Lighthouse.png)  
 
-![Home](assets/Screenshots/livevalidator.png)  
+![Home](assets/images/screenshots/livevalidator.png)  
 
-![Home](assets/Screenshots/validator_contact.png)  
+![Home](assets/screenshots/validator_contact.png)  
 
 As part of this testing i also used Code institues JSHint tool and completed the recomendations from there to ensure the code was correct and to the proper standard. in this there are still a few remaining errors however these are all around the use of ES6.
 

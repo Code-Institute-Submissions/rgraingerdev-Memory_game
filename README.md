@@ -69,22 +69,16 @@ Testing began with automated testing as per the table below with screenshots.
 
 |Test |Lighthouse| W3 html validator| W3 schools jigsaw| 
 |-----|-----|-----|-----|
-|home| Pass| Pass| Pass|
-|History| Pass| Pass| Pass|
-|Season| Pass| Pass| Pass|
-|Contact| Pass | Pass| Pass|
+|Main| Pass| Pass| Pass|
 
-![Home](assets/Screenshots/validator_home.png)  
 
-![Home](assets/Screenshots/validator_history.png)  
+![Home](assets/Screenshots/jigsaw.png)  
 
-![Home](assets/Screenshots/validator_season.png)  
+![Home](assets/Screenshots/Lighthouse.png)  
+
+![Home](assets/Screenshots/livevalidator.png)  
 
 ![Home](assets/Screenshots/validator_contact.png)  
-
-![Home](assets/Screenshots/lighthuse_desktop.png)
-
-![Home](assets/Screenshots/Lighthouse-testing.png)
 
 ### Manual testing
 
@@ -92,32 +86,18 @@ Testing began with automated testing as per the table below with screenshots.
 
 | Feature | Expect | Action | Result | Pass/Fail |
 |-----|-----|-----|-----|-----|
-|Enter button| To navigate to history page | clicked the enter button | Opened history page correctly | Pass |
-|Nav links | When clicked navigate to page | Clicked all nav links on all pages| All pages opened as expected| Pass
-|Social link icons | Social link icons to open links in new tab| clicked social link icons| Link opened in new tab and on correct site| Pass|
-|Menu Drop down | To drop down on mobile and tablet devices | opened on mutiple devices and pressed button | menu droped and displayed correctly| Pass|
+|Restart game|All tiles to reset|clicked button|Tiles All reset|Pass|
+|Restart game timer/score|On click to rertun to 0|Clicked restart|Counters return to 0|Pass|
+|Tiles|On click tile to flip|clicked tile| tile flipped|Pass|
+|Match|When same image shows stay flipped|Discovered a pair|Remained Flipped|Pass|
+|Swal display on win|When all tiles flipped banner to show|flipped all tiles|Banner showed|Pass|
 
-Continuing with testing, I tested the page across multiple devices (iPhone, Galaxy Fold, Edge and Firefox) ensuring all links and pages loaded all elements correctly and promptly.
+ 
+### bugs
 
-![iphone home](assets/Screenshots/iphone_home.png)  
-
-
-![fold contact](assets/Screenshots/fold_contact.png) 
-
-![Fold open history](assets/Screenshots/fold_open_history.png)
-
-
-![Desktop Home](assets/Screenshots/desktop_dis_home.png)
-
-
-![Firefox Home](assets/Screenshots/firefox_season.png)  
-
-
-### known bugs
-
-Bugs found during writing have been fixed. The footer obscuring certain information at the bottom of the page presented a challenging bug to fix. It also got stuck in the centre of the page, hiding several items, this has been fixed, and all pages now reply as intended.
-
-*reset game bug
+* Duing development a bug was discovered when restarting the game. When pressing restart game the timer would occasionaly return to 0 but not restart the cound. this was resolved by moving the timer and moves element into the start game function.
+* Shortly after deployment another bug was found when double clicking cards this apeared to break the game loop and no longer allow pairs to match. fix was discovered during testing when Lighthouse testing it was advised to remove unused element. when this was returned to the code error was resolved.
+* On initial build tiles were dispayled as ',,,,,,,,,,,,,,' this was due to gramatical errors when selecting the image from the folder structure.
 
 
 
@@ -144,6 +124,15 @@ Bugs found during writing have been fixed. The footer obscuring certain informat
 5. Press Enter to create your local clone.
 
 ## Sources
+* [W3schools](https://www.w3schools.com/)
+* [w3schools validator](https://validator.w3.org/)
+* [w3schools jigsaw](https://jigsaw.w3.org/css-validator/)
+* [Google fonts](https://fonts.google.com/)
+* [Balsamiq](https://balsamiq.com/)
+* [Github](https://github.com/flowforfrank/memory-game)
+* [Stackoverflow](https://stackoverflow.com/)
+* [Code Institute](https://codeinstitute.net/)
+* [Youtube](https://www.youtube.com/)
 
 
 

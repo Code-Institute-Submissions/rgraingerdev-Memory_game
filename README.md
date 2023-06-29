@@ -1,5 +1,3 @@
-![Memory game](assets/images/)
-
 Welcome To this memory game where you can test you memory and see how many attemps it takes for you to complete.
 
 ## Getting Started
@@ -12,7 +10,6 @@ I have developed user stories to direct my design and development process; in or
 
 * As a fan of memory games i want to be able to quickly and conveniently start a new game so that i can engage with the game without delays.
 * As a player i want to be able to play on diferent devices such as moblie phones and tablets, so i can enjoy anywhere.
-* As a player i want to have a way to an easy and intuitive navigation system.
 * As a player i want to have a way to read the rules and mechanics of the game.
 * i would like a scoreboard so i can see how i am doing against other players.
 * i want the game to be simple so my children can play.
@@ -28,7 +25,6 @@ By developing user stories, I can make sure that the website satisfies user need
 
 ### Future features
 * Add a scoreboard to mesure your score against other players.
-* A time to see how fast you can solve.
 * Add a user input to dictate the size of the game.
 
 ### Font
@@ -40,9 +36,6 @@ By developing user stories, I can make sure that the website satisfies user need
 * I began my project with wireframing my design below:
 
 * ![wireframe](assets/Screenshots/wireframemobile.png)
-* ![wireframe desktop](assets/Screenshots/wireframe1.png)
-* ![wireframe desktop 2](assets/Screenshots/wireframe2.png)
-* ![wireframe desktop 3](assets/Screenshots/wireframe3.png)
 
 ## Technologies used
 * HTML - Was used for the structure of the page.
@@ -80,9 +73,11 @@ Testing began with automated testing as per the table below with screenshots.
 
 ![Home](assets/Screenshots/validator_contact.png)  
 
+As part of this testing i also used Code institues JSHint tool and completed the recomendations from there to ensure the code was correct and to the proper standard. in this there are still a few remaining errors however these are all around the use of ES6.
+
 ### Manual testing
 
-#### Home page
+#### Main page
 
 | Feature | Expect | Action | Result | Pass/Fail |
 |-----|-----|-----|-----|-----|
@@ -133,6 +128,7 @@ Testing began with automated testing as per the table below with screenshots.
 * [Stackoverflow](https://stackoverflow.com/)
 * [Code Institute](https://codeinstitute.net/)
 * [Youtube](https://www.youtube.com/)
+* [Sweetalert](https://sweetalert.js.org/)
 
 
 

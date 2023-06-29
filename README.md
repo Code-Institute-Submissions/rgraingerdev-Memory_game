@@ -66,7 +66,7 @@ Testing began with automated testing as per the table below with screenshots.
 
 ![Home](assets/images/screenshots/livevalidator.png)  
 
-![Home](assets/screenshots/validator_contact.png)  
+![Home](assets/images/screenshots/w3schoolsvalidator)  
 
 As part of this testing i also used Code institues JSHint tool and completed the recomendations from there to ensure the code was correct and to the proper standard. in this there are still a few remaining errors however these are all around the use of ES6.
 

@@ -30,7 +30,7 @@ By developing user stories, I can make sure that the website satisfies user need
 ## Wireframes
 * I began my project with wireframing my design below:
 
-* ![wireframe](assets/images/Screenshots/wireframe.png)
+* ![wireframe](assets/images/screenshots/wireframe.png)
 
 ## Technologies used
 * HTML - Was used for the structure of the page.
